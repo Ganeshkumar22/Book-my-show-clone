@@ -1,36 +1,23 @@
 import React from "react";
-import { BsChevronRight, BsSearch } from "react-icons/bs";
+import { BsSearch } from "react-icons/bs";
 import { HiOutlineMenu } from "react-icons/hi";
 import { FiChevronDown } from "react-icons/fi";
+import { BsChevronLeft } from "react-icons/bs";
+import { IoShareSocialOutline } from "react-icons/io5";
 
 const NavSm = () => {
   return (
     <>
-      <div className="text-white flex items-center justify-between">
+      <div className="flex items-center justify-between">
         <div>
-          <h3 className="text-2xl font-bold">It All Starts Here!</h3>
-          <span className="text-gray-400 text-xs flex items-center">
-            Thiruthuraipoondi <BsChevronRight />
+          <span className="flex items-center px-2">
+            <BsChevronLeft className="cursor-pointer mr-3" />
+            <p>Shang-Chi and the Legend of the Ten Rings</p>
           </span>
         </div>
-        <div className="w-5 h-5">
-          <BsSearch className="w-full h-full cursor-pointer" />
+        <div>
+          <IoShareSocialOutline className="cursor-pointer w-5 h-5" />
         </div>
-      </div>
-    </>
-  );
-};
-
-const NavMd = () => {
-  return (
-    <>
-      <div className="w-full flex items-center bg-white gap-3 px-3 py-2 rounded-md cursor-pointer">
-        <BsSearch />
-        <input
-          type="search"
-          className="w-full focus:outline-none"
-          placeholder="Search for Movies, Events, Plays, Sports and Activities"
-        />
       </div>
     </>
   );
@@ -87,20 +74,20 @@ const NavLg = () => {
   );
 };
 
-const Navbar = () => {
+const MovieNavbar = () => {
   return (
     <>
-      <nav className="bg-navColor-750 p-4">
-        <div className="md:hidden">
+      <nav className="bg-gray-200 lg:bg-navColor-750 p-3 sm:mb-2 lg:mb-0">
+        <div className="md:hidden truncate">
           {
             // Mobile Screen
             <NavSm />
           }
         </div>
-        <div className="hidden lg:hidden md:flex">
+        <div className="hidden lg:hidden md:block">
           {
             // Tablet Screen
-            <NavMd />
+            <NavSm />
           }
         </div>
         <div className="hidden lg:flex">
@@ -114,4 +101,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default MovieNavbar;

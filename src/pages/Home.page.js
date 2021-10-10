@@ -15,7 +15,7 @@ const HomePage = () => {
         />
       </div>
       <div className="cointainer mx-auto px-4 lg:px-12 py-12">
-        <h1 className="lg:text-2xl md:text-xl font-bold text-gray-700 pt-3 pb-1.5 pl-2">
+        <h1 className="lg:text-2xl md:text-xl font-bold text-gray-700 pt-3 pb-1.5 pl-4">
           The Best of Entertainment
         </h1>
         <EntertainmentCardSlider />
