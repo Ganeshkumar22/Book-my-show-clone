@@ -1,5 +1,5 @@
 const settings = {
-  slidesToShow: 5,
+  slidesToShow: 4,
 
   responsive: [
     {

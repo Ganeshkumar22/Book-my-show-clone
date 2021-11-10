@@ -1,22 +1,56 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import GridPosterConfig from "../components/GridPosterConfig/GridPosterConfig.component";
-import GridPosterImages from "../Config/GridPosterImages.config";
 import PlaysFilter from "../components/PlaysFilters/PlaysFilters.component";
 
 const Playspage = () => {
+
+  // PlaysMovies
+  const [playsMovies, setPlaysMovies] = useState([]);
+  useEffect(() => {
+    const requestPlaysMovies = async () => {
+      const getPlaysMovies = await axios.get("/movie/popular");
+      setPlaysMovies(getPlaysMovies.data.results);
+    };
+    requestPlaysMovies();
+  }, []);
+  console.log({ playsMovies });
+
+  // PlaysMovies1
+  const [playsMovies1, setPlaysMovies1] = useState([]);
+  useEffect(() => {
+    const requestPlaysMovies = async () => {
+      const getPlaysMovies = await axios.get("/movie/top_rated");
+      setPlaysMovies1(getPlaysMovies.data.results);
+    };
+    requestPlaysMovies();
+  }, []);
+  console.log({ playsMovies1 });
+
+  // PlaysMovies2
+  const [playsMovies2, setPlaysMovies2] = useState([]);
+  useEffect(() => {
+    const requestPlaysMovies = async () => {
+      const getPlaysMovies = await axios.get("/movie/upcoming");
+      setPlaysMovies2(getPlaysMovies.data.results);
+    };
+    requestPlaysMovies();
+  }, []);
+  console.log({ playsMovies2 });
+
   return (
     <>
-      <div className="container mx-auto">
+      <div className="container lg:mx-12">
         <div className="lg:flex lg:flex-row-reverse">
-          <div className="lg:w-full lg:pl">
-            <h1 className="mt-10 lg:text-2xl lg:ml-24 md:text-xl md:ml-4 ml-4 font-bold text-gray-800 lg:pb-5">
+          <div className="relative lg:-left-4 lg:w-9/12">
+            <h1 className="mt-10 ml-3 lg:text-2xl md:text-xl md:ml-3 font-bold text-gray-800 lg:pb-5">
               Plays In Thiruthuraipoondi
             </h1>
             <div>
-              <GridPosterConfig images={GridPosterImages} />
+              <GridPosterConfig images={playsMovies} images1={playsMovies1} images2={playsMovies2}/>
             </div>
           </div>
-          <div className="lg:w-4/12 mt-10">
+          <div className="lg:w-3/12 mt-10 hidden lg:block">
             <h1 className="lg:text-2xl font-bold text-gray-800 pb-5">
               Filters
             </h1>

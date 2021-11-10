@@ -1,5 +1,24 @@
 import React from "react";
 import MovieHero from "../components/MovieHero/MovieHero.component";
+
+const launchRazorpay = () => {
+  let options = {
+    key: "rzp_test_PJPpk73CxRmbpl",
+    amount: 500 * 100,
+    currency: "INR",
+    name: "Bookmyshow Clone",
+    description: "Movie Purchase on Rental",
+    image:
+      "https://i.ibb.co/zPBYW3H/imgbin-bookmyshow-office-android-ticket-png.png",
+    handler: () => {
+      alert("Payment Successful");
+    },
+    theme: { color: "#c4242d" },
+  };
+  let razorpay = new window.Razorpay(options);
+  razorpay.open();
+};
+
 const MoviePage = () => {
   return (
     <>
@@ -15,7 +34,7 @@ const MoviePage = () => {
             Feige and Jonathan Schwartz.
           </p>
         </div>
-        <div className="my-8 ">
+        <div className="my-8">
           <hr />
         </div>
 
@@ -37,10 +56,14 @@ const MoviePage = () => {
               </p>
             </div>
           </div>
+          <button onClick = {launchRazorpay} className="mt-4 bg-red-500 hover:bg-red-700 text-white font-semibold py-3 px-12 rounded">
+          Book tickets
+        </button>
         </div>
-        <div className = "my-8">
-            <hr />
+        <div className="my-8">
+          <hr />
         </div>
+        
       </div>
     </>
   );

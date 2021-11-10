@@ -13,7 +13,13 @@ const GridPosterConfig = (props) => {
       </Slider>
 
       <Slider {...settings} arrows = {false}> 
-        {props.images.map((image) => (
+        {props.images1.map((image) => (
+          <GridPoster {...image} />
+        ))}
+      </Slider>
+       
+      <Slider {...settings} arrows = {false}> 
+        {props.images2.map((image) => (
           <GridPoster {...image} />
         ))}
       </Slider>
